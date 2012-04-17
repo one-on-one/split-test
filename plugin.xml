@@ -1,0 +1,30 @@
+<plugin name='split-test' version='0.1' grailsVersion='2.0 &gt; *'>
+  <author>Your name</author>
+  <title>Split Test Plugin</title>
+  <description>Brief summary/description of the plugin.
+</description>
+  <documentation>http://grails.org/plugin/split-test</documentation>
+  <type>SplitTestGrailsPlugin</type>
+  <resources>
+    <resource>com.ono.ab.SplitTestController</resource>
+    <resource>com.ono.ab.SplitTestVariantController</resource>
+    <resource>com.playground.WelcomeController</resource>
+    <resource>com.ono.ab.SplitTest</resource>
+    <resource>com.ono.ab.SplitTestVariant</resource>
+    <resource>com.ono.ab.SplitTestVariantHit</resource>
+    <resource>com.ono.ab.SessionStorageService</resource>
+    <resource>com.ono.ab.SplitTestService</resource>
+    <resource>com.ono.ab.SplitTestTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>
