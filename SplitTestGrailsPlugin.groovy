@@ -12,31 +12,29 @@ class SplitTestGrailsPlugin {
 
     // TODO Fill in these fields
     def title = "Split Test Plugin" // Headline display name of the plugin
-    def author = "Your name"
-    def authorEmail = ""
-    def description = '''\
-Brief summary/description of the plugin.
-'''
+    def author = "Eric Berry"
+    def authorEmail = "cavneb@gmail.com"
+    def description = 'SplitTest is an A/B testing framework designed to work with Grails.'
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/split-test"
+    def documentation = "https://github.com/one-on-one/split-test"
 
     // Extra (optional) plugin metadata
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'
-//    def license = "APACHE"
+    def license = "APACHE"
 
     // Details of company behind the plugin (if there is one)
-//    def organization = [ name: "My Company", url: "http://www.my-company.com/" ]
+    def organization = [ name: "One on One Marketing Inc.", url: "http://www.1on1.com/" ]
 
     // Any additional developers beyond the author specified above.
 //    def developers = [ [ name: "Joe Bloggs", email: "joe@bloggs.net" ]]
 
     // Location of the plugin's issue tracker.
-//    def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GPMYPLUGIN" ]
+    def issueManagement = [ system: "GitHub", url: "https://github.com/one-on-one/split-test/issues" ]
 
     // Online location of the plugin's browseable source code.
-//    def scm = [ url: "http://svn.grails-plugins.codehaus.org/browse/grails-plugins/" ]
+    def scm = [ url: "https://github.com/one-on-one/split-test" ]
 
     def doWithWebDescriptor = { xml ->
         // TODO Implement additions to web.xml (optional), this event occurs before
