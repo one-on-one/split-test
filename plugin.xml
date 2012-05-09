@@ -1,4 +1,4 @@
-<plugin name='split-test' version='0.1' grailsVersion='2.0 &gt; *'>
+<plugin name='split-test' version='0.2' grailsVersion='2.0 &gt; *'>
   <author>Eric Berry</author>
   <authorEmail>cavneb@gmail.com</authorEmail>
   <title>Split Test Plugin</title>
@@ -6,6 +6,7 @@
   <documentation>https://github.com/one-on-one/split-test</documentation>
   <type>SplitTestGrailsPlugin</type>
   <resources>
+    <resource>SplitTestPluginResources</resource>
     <resource>com.ono.ab.SplitTestController</resource>
     <resource>com.ono.ab.SplitTestVariantController</resource>
     <resource>com.playground.WelcomeController</resource>
