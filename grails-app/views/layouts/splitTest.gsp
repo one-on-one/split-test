@@ -8,51 +8,11 @@
     <meta name="author" content="One on One Marketing, Inc">
 
     <!-- Le styles -->
-    <link href="${resource(dir: 'css', file: 'bootstrap.min.css')}" rel="stylesheet">
-    <style type="text/css">
-    body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-    }
-
-    table#report th {
-        text-align: center;
-    }
-
-    tr.first td {
-        border-top: 0px;
-    }
-
-    tr.champion td {
-        background-color: #ffffaa;
-        text-align: center;
-    }
-
-    tr.contender td {
-        text-align: center;
-    }
-
-    .date-fields select {
-        width: 80px !important;
-    }
-
-    sup.tooltip {
-        font-size: 9px;
-    }
-
-    .sidebar-nav {
-        padding: 9px 0;
-    }
-
-    .instructions h3 {
-        padding-bottom: 5px;
-    }
-    </style>
-    <link href="${resource(dir: 'css', file: 'bootstrap-responsive.min.css')}" rel="stylesheet">
-
-    <script src="${resource(dir: 'js', file: 'jquery-1.7.2.min.js')}"></script>
-    <script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
-    <script src="${resource(dir: 'js', file: 'bootstrap-tooltip.js')}"></script>
+    <link href="${resource(dir: 'css', file: 'bootstrap.min.css', plugin: 'split-test')}" rel="stylesheet">
+    <link href="${resource(dir: 'css', file: 'bootstrap-responsive.min.css', plugin: 'split-test')}" rel="stylesheet">
+    <link href="${resource(dir: 'css', file: 'custom.css', plugin: 'split-test')}" rel="stylesheet">
+    <script src="${resource(dir: 'js', file: 'jquery-1.7.2.min.js', plugin: 'split-test')}"></script>
+    <script src="${resource(dir: 'js', file: 'bootstrap.min.js', plugin: 'split-test')}"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
