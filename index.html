@@ -15,8 +15,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Split-test</h1>
-        <p>SplitTest plugin for Grails</p>
+        <h1>Split Test</h1>
+        <p>Split Test plugin for Grails</p>
         <p class="view"><a href="https://github.com/one-on-one/split-test">View the Project on GitHub <small>one-on-one/split-test</small></a></p>
         <ul>
           <li><a href="https://github.com/one-on-one/split-test/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -25,38 +25,99 @@
         </ul>
       </header>
       <section>
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3>Split Test Plugin for Grails</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Performing <a href="http://en.wikipedia.org/wiki/A/B_testing">A/B tests</a> in your grails application allows you to make informed decisions on design and user experience 
+based on visitors actions. The information is gathered by placing a simple tag on your view, then a trigger on your controller
+to inform the plugin that the user was successfully converted.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>Some of the key features of this plugin are:</p>
+
+<ul>
+<li>Test display or behavioral differences with one simple taglib <code>&lt;ab:splitTest&gt;</code>
+</li>
+<li>Measure not only conversions, but steps along the way (up to 3 - see below)</li>
+<li>Analytics on visitor behavior and which paths they are likely to convert better on</li>
+<li>Very fast, with minimal performance impact</li>
+<li>Beautiful admin tool (/splitTests) based on Twitter Bootstrap</li>
+</ul><p><em>Screenshots to follow</em></p>
+
+<h2>
+<a name="quick-start" class="anchor" href="#quick-start"><span class="mini-icon link"></span></a>Quick Start</h2>
+
+<p>A split test is comprised of placing a taglib in a view. The taglib will contain the default contents of which are to be shown if the test is not enabled. For example:</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;ab:splitTest</span> <span class="na">name=</span><span class="s">"My First Split Test"</span><span class="nt">&gt;</span>
+    This is my default content that appears when the test is disabled.
+<span class="nt">&lt;/ab:splitTest&gt;</span>
+</pre>
+</div>
+
+
+<p>When this page is viewed by a visitor, a Split Test is automatically added into the Split Test list. Note that it is not active by default.</p>
+
+<p>To trigger the conversion, you can do this via the splitTestService in your controller:</p>
+
+<div class="highlight">
+<pre><span class="kd">class</span> <span class="nc">ExampleController</span> <span class="o">{</span>
+
+    <span class="kt">def</span> <span class="n">splitTestService</span>
+
+    <span class="kt">def</span> <span class="nf">converted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Mark split test with name 'My First Split Test' as converted</span>
+        <span class="n">splitTestService</span><span class="o">.</span><span class="na">markTestAsConverted</span><span class="o">(</span><span class="s1">'My First Split Test'</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+
+
+<p>You can also trigger different conversion metrics using the Action 1-3 triggers:</p>
+
+<div class="highlight">
+<pre><span class="kd">class</span> <span class="nc">ExampleController</span> <span class="o">{</span>
+
+    <span class="kt">def</span> <span class="n">splitTestService</span>
+
+    <span class="kt">def</span> <span class="nf">almostConverted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Mark split test as converting on Action 1</span>
+        <span class="n">splitTestService</span><span class="o">.</span><span class="na">markTestAsActionOneConverted</span><span class="o">(</span><span class="s1">'My First Split Test'</span><span class="o">)</span>
+
+        <span class="c1">// Mark split test as converting on Action 2</span>
+        <span class="n">splitTestService</span><span class="o">.</span><span class="na">markTestAsActionTwoConverted</span><span class="o">(</span><span class="s1">'My First Split Test'</span><span class="o">)</span>
+
+        <span class="c1">// Mark split test as converting on Action 3</span>
+        <span class="n">splitTestService</span><span class="o">.</span><span class="na">markTestAsActionThreeConverted</span><span class="o">(</span><span class="s1">'My First Split Test'</span><span class="o">)</span>
+    <span class="o">}</span>
+
+    <span class="kt">def</span> <span class="nf">converted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Mark split test with name 'My First Split Test' as converted</span>
+        <span class="n">splitTestService</span><span class="o">.</span><span class="na">markTestAsConverted</span><span class="o">(</span><span class="s1">'My First Split Test'</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+</div>
+
+
+<h2>
+<a name="admin-tools" class="anchor" href="#admin-tools"><span class="mini-icon link"></span></a>Admin Tools</h2>
+
+<p>The split test variants are controlled within the admin tools. </p>
+
+<p><strong>You can access the admin by going to /SplitTest in your app.</strong></p>
+
+<p>The app is secured by a simple authentication. The default username and password is <code>admin</code> and <code>changeit</code>. You can change the username/password by adding the following into your <code>Config.groovy</code> file:</p>
+
+<pre><code>// Set username and password split-test admin
+grails.plugins.splittest.username = 'newusername'
+grails.plugins.splittest.password = 'newpassword'
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/one-on-one">one-on-one</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<p>More documentation is to follow on how to use the admin tools, but it is fairly well documented with the admin, so please check it out.</p></article></div>
     </div>
+  </div>
+  <br style="clear:both;">
     <script src="javascripts/scale.fix.js"></script>
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
