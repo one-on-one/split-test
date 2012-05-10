@@ -64,3 +64,13 @@ class ExampleController {
     }
 }
 ```
+
+### Admin Tools
+
+The split test variants are controlled within the admin tools. You can access the admin by going to /SplitTest in your app. The app is secured by a simple authentication. The default username and password is `admin` and `changeit`. You can change the username/password by adding the following into your `Config.groovy` file:
+
+    // Set username and password split-test admin
+    grails.plugins.splittest.username = 'newusername'
+    grails.plugins.splittest.password = 'newpassword'
+
+More documentation is to follow on how to use the admin tools, but it is fairly well documented with the admin, so please check it out.
