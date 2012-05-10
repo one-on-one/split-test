@@ -1,6 +1,6 @@
 class SplitTestGrailsPlugin {
     // the plugin version
-    def version = "0.3"
+    def version = "0.4"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
@@ -17,7 +17,7 @@ class SplitTestGrailsPlugin {
     def description = 'SplitTest is an A/B testing framework designed to work with Grails.'
 
     // URL to the plugin's documentation
-    def documentation = "https://github.com/one-on-one/split-test"
+    def documentation = "http://one-on-one.github.com/split-test/"
 
     // Extra (optional) plugin metadata
 
@@ -28,7 +28,7 @@ class SplitTestGrailsPlugin {
     def organization = [ name: "One on One Marketing Inc.", url: "http://www.1on1.com/" ]
 
     // Any additional developers beyond the author specified above.
-//    def developers = [ [ name: "Joe Bloggs", email: "joe@bloggs.net" ]]
+    def developers = [ [ name: "Mark Berry", email: "markab242@gmail.com" ]]
 
     // Location of the plugin's issue tracker.
     def issueManagement = [ system: "GitHub", url: "https://github.com/one-on-one/split-test/issues" ]
