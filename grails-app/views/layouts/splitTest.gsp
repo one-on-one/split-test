@@ -39,8 +39,8 @@
                 <ul class="nav">
                     <li <g:if test="${actionName != 'instructions'}">class="active"</g:if>><g:link
                             controller="splitTest" action="list">Split Tests</g:link></li>
-                    <li <g:if test="${actionName == 'instructions'}">class="active"</g:if>><g:link
-                            controller="splitTest" action="instructions">Usage</g:link></li>
+                    <li><a href="http://one-on-one.github.com/split-test/" target="_blank">Documentation</a></li>
+                    <li><g:link controller="splitTestAuth" action="logout">Logout</g:link></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

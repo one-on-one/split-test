@@ -24,3 +24,7 @@ log4j = {
 }
 grails.views.default.codec="none" // none, html, base64
 grails.views.gsp.encoding="UTF-8"
+
+// Set username and password split-test admin
+grails.plugins.splittest.username = 'admin'
+grails.plugins.splittest.password = 'changeit'
